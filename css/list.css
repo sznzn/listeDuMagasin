@@ -1,0 +1,74 @@
+.crumbs{
+    height: 63px;
+    line-height: 63px;
+    font-size: 12px;
+}
+.crumbs .item:last-child{
+    color: #000;
+}
+.crumbs .item{
+    cursor: pointer;
+}
+/* ********************** */
+.operation{
+    background-color: #fff;
+
+    font-size: 12px;
+    padding: 0 24px;
+}
+.operation > .row{
+    display: flex;
+}
+.operation > .row .item {
+    width: 104px;
+    height: 48px;
+    line-height: 48px;
+    color: #000;
+    cursor: pointer;
+}
+.operation > .row .item:first-child{
+    color: #666;
+    cursor: auto;
+}
+.operation > .row .item.active
+{
+    color: red;
+}
+/* *************************** */
+.formation {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.formation > .item {
+    width: 291px;
+    height: 386px;
+    border: #000 1px solid;
+    margin-bottom: 12px;
+}
+/* a est inline */
+.formation > .item a{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.formation > .item .album{
+    width: 180px;
+    height: 180px;
+    margin: 30px 0;
+}
+.formation > .item .name{
+    
+    color: #000;
+    font-weight: bolder;
+}
+.formation > .item .tarif{
+    
+    margin-top: 10px;
+}
+.formation > .item .note{
+    
+    margin-top: 10px;
+}

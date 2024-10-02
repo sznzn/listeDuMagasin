@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste du magasin</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="crumbs">
+            <span class="item">Home</span>
+            <span>&gt;</span>
+            <span class="item">Formation</span>
+        </div>
+<!-- ------------------------------------------ -->
+        <div class="operation">
+            <ul class="lieu row">
+                <li class="item">Lieu :</li>
+                <li class="item active">Vaucluse</li>
+                <li class="item">Var</li>
+                <li class="item">Gard</li>
+            </ul>
+            <ul class="periode row">
+                <li class="item">Période :</li>
+                <li class="item">Janv</li>
+                <li class="item">Fev</li>
+                <li class="item">Mars</li>
+            </ul>
+            <ul class="type row">
+                <li class="item">Type :</li>
+                <li class="item">Normal</li>
+                <li class="item">Jeune</li>
+                <li class="item">Psychologie</li>
+            </ul>
+            <!-- ------------------------------------ -->
+        <ul class="formation">
+    
+            
+        </ul>
+        </div>
+        
+    </div>
+    <script src="json/data.js"></script>
+    <script>
+        let formationTotal = document.querySelector(".formation")
+        
+        
+        for(let i = 0 ; i < results.length; i++){
+            let result = results[i]
+            //result是从服务器上拿来的list数据中的每一项
+            let element = document.createElement("li")
+            element.classList.add("item")
+            //element是我们创建的li。然后把li加上class item之后直接全部放在class是formation的ul里面
+            formationTotal.append(element)
+
+            //创建a
+            let lien = document.createElement("a")
+            lien.href = "#"
+            element.append(lien)
+            //image
+            let image = document.createElement("img")
+            image.classList.add("album")
+            image.src = result["image"]
+            lien.append(image)
+        }
+    </script>
+</body>
+</html>
