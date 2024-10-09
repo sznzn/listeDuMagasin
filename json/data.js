@@ -4,28 +4,33 @@ let results =
             "id": 1,
             "name": "Lyon formation avancée",
             "tarif": "799€",
-            "note": 4,
+            "note": 4.2,
+            "lieu": "Autres",
             "image": "https://picsum.photos/180?random=1"
+            
         },
         {
             "id": 2,
             "name": "Marseille formation intermédiaire",
             "tarif": "899€",
-            "note": 5,
+            "note": 4.7,
+            "lieu": "PACA",
             "image": "https://picsum.photos/180?random=2"
         },
         {
             "id": 3,
             "name": "Paris formation débutante",
             "tarif": "499€",
-            "note": 3,
+            "note": 3.2,
+            "lieu": "Paris",
             "image": "https://picsum.photos/180?random=3"
         },
         {
             "id": 4,
             "name": "Avignon formation courte",
             "tarif": "699€",
-            "note": 4,
+            "note": 4.7,
+            "lieu": "PACA",
             "image": "https://picsum.photos/180?random=4"
         },
         {
@@ -33,6 +38,7 @@ let results =
             "name": "Nice formation professionnelle",
             "tarif": "1199€",
             "note": 5,
+            "lieu": "PACA",
             "image": "https://picsum.photos/180?random=5"
         },
         {
@@ -40,6 +46,7 @@ let results =
             "name": "Bordeaux formation avancée",
             "tarif": "799€",
             "note": 4,
+            "lieu": "Autres",
             "image": "https://picsum.photos/180?random=6"
         },
         {
@@ -47,6 +54,7 @@ let results =
             "name": "Lille formation express",
             "tarif": "599€",
             "note": 3,
+            "lieu": "Autres",
             "image": "https://picsum.photos/180?random=7"
         },
         {
@@ -54,6 +62,7 @@ let results =
             "name": "Nantes formation spécialisée",
             "tarif": "999€",
             "note": 5,
+            "lieu": "Autres",
             "image": "https://picsum.photos/180?random=8"
         },
         {
@@ -61,12 +70,14 @@ let results =
             "name": "Montpellier formation débutante",
             "tarif": "549€",
             "note": 3,
+            "lieu": "PACA",
             "image": "https://picsum.photos/180?random=9"
         },
         {
             "id": 10,
             "name": "Strasbourg formation intermédiaire",
             "tarif": "749€",
+            "lieu": "Autres",
             "note": 4,
             "image": "https://picsum.photos/180?random=10"
         }

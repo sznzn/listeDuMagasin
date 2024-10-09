@@ -19,9 +19,9 @@
         <div class="operation">
             <ul class="lieu row">
                 <li class="item">Lieu :</li>
-                <li class="item active">Vaucluse</li>
-                <li class="item">Var</li>
-                <li class="item">Gard</li>
+                <li class="item">PACA</li>
+                <li class="item">Paris</li>
+                <li class="item">Autres</li>
             </ul>
             <ul class="periode row">
                 <li class="item">Période :</li>
@@ -46,6 +46,19 @@
     <script src="json/data.js"></script>
     <script>
         let formationTotal = document.querySelector(".formation")
+
+    function generateStars(note) {
+    let stars = '';
+    const fullStars = Math.floor(note); // 完整的星星数量
+    const halfStar = note % 1 >= 0.5 ? '🌙': ''; // 半颗星星
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // 空心星星数量
+
+    stars += '⭐'.repeat(fullStars); // 添加完整的星星
+    stars += halfStar; // 添加半颗星星
+    stars += '☆'.repeat(emptyStars); // 添加空心星星
+
+    return stars;
+    }
         
         
         for(let i = 0 ; i < results.length; i++){
@@ -65,7 +78,99 @@
             image.classList.add("album")
             image.src = result["image"]
             lien.append(image)
+
+            //name
+            let eleName = document.createElement("div")
+            eleName.classList.add("name")
+            eleName.textContent = result["name"]
+            lien.append(eleName)
+            //tarif
+            let eleTarif = document.createElement("div")
+            eleTarif.classList.add("tarif")
+            eleTarif.textContent = result["tarif"]
+            lien.append(eleTarif)
+            //note
+            let eleNote = document.createElement("div")
+            eleNote.classList.add("note")
+            eleNote.textContent = generateStars(result["note"])
+            lien.append(eleNote)
         }
+        //封装一个函数
+        function generateListItems(results){
+            let formationTotal = document.querySelector(".formation");
+            formationTotal.innerHTML = "";
+            for(let i = 0 ; i < results.length; i++){
+            let result = results[i]
+            //result是从服务器上拿来的list数据中的每一项
+            let element = document.createElement("li")
+            element.classList.add("item")
+            //element是我们创建的li。然后把li加上class item之后直接全部放在class是formation的ul里面
+            formationTotal.append(element)
+
+            //创建a
+            let lien = document.createElement("a")
+            lien.href = "#"
+            element.append(lien)
+            //image
+            let image = document.createElement("img")
+            image.classList.add("album")
+            image.src = result["image"]
+            lien.append(image)
+
+            //name
+            let eleName = document.createElement("div")
+            eleName.classList.add("name")
+            eleName.textContent = result["name"]
+            lien.append(eleName)
+            //tarif
+            let eleTarif = document.createElement("div")
+            eleTarif.classList.add("tarif")
+            eleTarif.textContent = result["tarif"]
+            lien.append(eleTarif)
+            //note
+            let eleNote = document.createElement("div")
+            eleNote.classList.add("note")
+            eleNote.textContent = generateStars(result["note"])
+            lien.append(eleNote)
+            }
+        }
+        // choisir les lieux
+        let operationLieu = document.querySelector(".operation");
+        let lieuChoisie = operationLieu.querySelector(".lieu");
+
+        let lieuFilters = []
+        for(let i=1; i<lieuChoisie.children.length; i++){
+            let lieu = lieuChoisie.children[i]
+
+            lieu.onclick = function(){
+                this.classList.toggle("active")
+                if(this.classList.contains("active")){
+                    lieuFilters.push(this.textContent.trim())
+                }else{
+                    let filterItem = this.textContent.trim()
+                    let filterIndex = lieuFilters.findIndex(function(item){
+                        return item === filterItem
+                    })
+                    lieuFilters.splice(filterIndex, 1)
+                }
+                console.log(lieuFilters);
+                
+                filterResult()
+            }
+
+        }
+
+        //封装函数-过滤数据
+        function filterResult(){
+            if(lieuFilters.length === 0){
+                generateListItems(results)
+                return
+            }
+            let filter = results.filter(function(item){
+                return lieuFilters.includes(item.lieu)
+            })
+            generateListItems(filter)
+            }
     </script>
 </body>
 </html>

@@ -48,6 +48,9 @@
     margin-bottom: 12px;
 }
 /* a est inline */
+.formation > .item:hover{
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
 .formation > .item a{
     display: flex;
     justify-content: center;
