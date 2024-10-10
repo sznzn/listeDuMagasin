@@ -47,6 +47,10 @@
     border: #000 1px solid;
     margin-bottom: 12px;
 }
+.formation > .empty{
+    height: 0;
+    border: 0;
+}
 /* a est inline */
 .formation > .item:hover{
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);

@@ -35,14 +35,14 @@
                 <li class="item">Jeune</li>
                 <li class="item">Psychologie</li>
             </ul>
-            <!-- ------------------------------------ -->
+<!-- ------------------------------------ -->
         <ul class="formation">
+        </ul>
+    </div>
+</div>
     
             
-        </ul>
-        </div>
         
-    </div>
     <script src="json/data.js"></script>
     <script>
         let formationTotal = document.querySelector(".formation")
@@ -132,6 +132,13 @@
             eleNote.classList.add("note")
             eleNote.textContent = generateStars(result["note"])
             lien.append(eleNote)
+            }
+            //加空标签，为什么 - 一行是3个格，所以用小于2
+            for(let i = 0; i < 2; i++){
+                let element = document.createElement("li")
+            element.classList.add("item")
+            element.classList.add('empty')
+            formationTotal.append(element)
             }
         }
         // choisir les lieux
